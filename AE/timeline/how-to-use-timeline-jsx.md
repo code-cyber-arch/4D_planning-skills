@@ -4,7 +4,9 @@ A quick guide for building or updating a construction timeline video overlay. No
 
 ## 1. Install it (one time only)
 
-When Claude proposes the "timeline-jsx" skill in a chat, you'll see a review card. Click **Save**. That's it — it's now available in every future chat on this Claude account, on any computer you use it from.
+If you haven't installed the skill yet, follow the install guide in the [README](../../README.md). It takes about two minutes and you only ever do it once.
+
+Once it's installed it's available in every future chat, on any computer you sign in from.
 
 ## 2. What to have ready before you ask
 
