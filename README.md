@@ -22,7 +22,7 @@ Claude needs this switched on before it will accept any skill.
 
 ### Step 2 — Download the skill file
 
-Download **[timeline-jsx.zip](timeline-jsx.zip)**.
+Download **[timeline-jsx.zip](dist/timeline-jsx.zip)**.
 
 On this page, click the file name above, then click the **Download** button. It will land in your Downloads folder.
 
@@ -67,7 +67,7 @@ Full instructions for building a timeline are in **[how-to-use-timeline-jsx.md](
 
 If the skill gets improved and you're told to update:
 
-1. Download the new **[timeline-jsx.zip](timeline-jsx.zip)** from this page.
+1. Download the new **[timeline-jsx.zip](dist/timeline-jsx.zip)** from this page.
 2. Go to **Customize > Skills**.
 3. Delete the old "timeline-jsx" entry.
 4. Upload the new zip the same way as Step 3 above.
@@ -76,22 +76,27 @@ If the skill gets improved and you're told to update:
 
 ## For developers
 
-To use this in Claude Code instead of the Claude app, put `SKILL.md` in a folder named after the skill:
+The skill lives in the standard layout, so cloning this repo gives a working project-scoped skill with no install step:
+
+```
+.claude/skills/
+└── timeline-jsx/
+    └── SKILL.md
+```
+
+To install it globally for Claude Code instead, symlink it:
 
 ```bash
-git clone https://github.com/code-cyber-arch/4D_planning-skills.git
 mkdir -p ~/.claude/skills/timeline-jsx
-ln -sfn "$PWD/4D_planning-skills/AE/timeline/timeline-jsx-SKILL.md" ~/.claude/skills/timeline-jsx/SKILL.md
+ln -sfn "$PWD/.claude/skills/timeline-jsx/SKILL.md" ~/.claude/skills/timeline-jsx/SKILL.md
 ```
 
 Restart your session afterwards — skills are loaded at startup.
 
 ### Maintaining the zip
 
-`timeline-jsx.zip` is generated from the source file, so it does not update itself. After editing `AE/timeline/timeline-jsx-SKILL.md`, rebuild it:
+The zip in `dist/` is generated, so it does not update itself. After editing the skill, rebuild and commit the zip alongside the edit, or people will download a stale skill:
 
 ```bash
 ./build-zip.sh
 ```
-
-Commit the rebuilt zip alongside the edit, or people will download a stale skill.
